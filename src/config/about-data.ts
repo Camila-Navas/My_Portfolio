@@ -1,7 +1,7 @@
 "use client";
 
 import { Variants } from "framer-motion";
-import { Code2, Globe, Cpu, Zap, BookOpen, Rocket, Bot } from "lucide-react";
+import { Code2, Cpu, BookOpen, ShieldCheck, Headset } from "lucide-react";
 
 export const ABOUT_DATA = {
     title: "Trayectoria Profesional",
@@ -9,51 +9,51 @@ export const ABOUT_DATA = {
     timeline: [
         {
             id: 1,
-            title: "Técnologo en Análisis y Desarrollo de Software (SENA)",
-            description: "Fundamentos sólidos en Java (POO) y bases de datos. Transición al desarrollo web moderno creando APIs RESTful.",
+            title: "Tecnólogo en Análisis y Desarrollo de Software (SENA)",
+            description: "Formación integral en programación, bases de datos, metodologías ágiles y buenas prácticas de desarrollo de software.",
             icon: BookOpen,
         },
         {
             id: 2,
-            title: "QA & Testing en Rappi",
-            description: "Inmersión en ciclos ágiles de alto nivel. Reporte de bugs críticos,testing y análisis de arquitectura de componentes de React en producción.",
-            icon: Rocket,
+            title: "Auxiliar de Sistemas en ODIR Certificaciones",
+            description: "Soporte técnico, resolución de incidencias y mantenimiento de equipos en un entorno empresarial real, fortaleciendo el análisis y la atención al usuario.",
+            icon: Headset,
         },
         {
             id: 3,
-            title: "Especialización Full Stack Moderno",
-            description: "Dominio del stack Next.js/TypeScript y NestJS. Enfoque en Clean Architecture, Testing y Experiencia de Usuario.",
-            icon: Code2,
+            title: "Enfoque en QA y Desarrollo de Software",
+            description: "Especialización en aseguramiento de calidad, automatización de pruebas y desarrollo Full Stack con stack moderno (React, Next.js, TypeScript).",
+            icon: ShieldCheck,
         },
     ],
     stats: [
         {
             label: "Perfil Técnico",
-            value: "Full Stack",
+            value: "Software Dev",
             icon: Code2,
             color: "text-blue-500",
             bg: "bg-blue-500/10",
             border: "group-hover:border-blue-500/50"
         },
         {
-            label: "Proyectos",
-            value: "3+ Apps",
-            icon: Globe,
-            color: "text-purple-500",
-            bg: "bg-purple-500/10",
-            border: "group-hover:border-purple-500/50"
+            label: "Especialidad",
+            value: "QA Analyst",
+            icon: ShieldCheck,
+            color: "text-cyan-500",
+            bg: "bg-cyan-500/10",
+            border: "group-hover:border-cyan-500/50"
         },
         {
-            label: "Enfoque",
-            value: "AI Driven",
-            icon: Bot,
+            label: "Soporte",
+            value: "IT Support",
+            icon: Headset,
             color: "text-pink-500",
             bg: "bg-pink-500/10",
             border: "group-hover:border-pink-500/50"
         },
         {
             label: "Stack",
-            value: "MERN+",
+            value: "Full Stack",
             icon: Cpu,
             color: "text-green-500",
             bg: "bg-green-500/10",
@@ -62,7 +62,7 @@ export const ABOUT_DATA = {
     ],
     conclusion: {
         cmd: "echo $PROPUESTA_VALOR",
-        output: "Código limpio, lógica sólida y enfoque en calidad. Listo para aportar valor real desde el primer commit."
+        output: "Análisis, calidad y resolución de problemas. Lista para aportar desde el primer día con código limpio y atención al detalle."
     }
 };
 

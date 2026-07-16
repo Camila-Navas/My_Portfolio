@@ -26,7 +26,7 @@ export const ProfileImage = () => {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="absolute -inset-3 bg-gradient-to-r from-primary/30 to-purple-500/30 rounded-full blur-2xl -z-10"
+        className="absolute -inset-3 bg-gradient-to-r from-primary/30 to-cyan-500/30 rounded-full blur-2xl -z-10"
       />
 
       {/* --- CONTENEDOR DE LA IMAGEN (FLOTANDO) --- */}

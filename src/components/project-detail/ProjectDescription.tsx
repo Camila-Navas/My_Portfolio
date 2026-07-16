@@ -14,7 +14,7 @@ export const ProjectDescription = ({ fullDescription }: { fullDescription: strin
       {/* Título adaptable: borde oscuro y texto blanco en noche */}
       <h3 className="text-2xl font-bold mb-6 flex items-center gap-3 border-b border-gray-100 dark:border-zinc-800 pb-2 text-gray-900 dark:text-white">
         {/* Icono adaptable: fondo oscuro translúcido en noche */}
-        <div className="p-2 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-purple-600 dark:text-purple-400">
+        <div className="p-2 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg text-cyan-600 dark:text-cyan-400">
           <Layers size={20} />
         </div>
         Sobre el Proyecto

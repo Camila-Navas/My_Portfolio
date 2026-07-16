@@ -79,8 +79,8 @@ export const PROJECTS: Project[] = [
     ],
 
     links: {
-      github: "https://github.com/junkamilo/MusicApp.git",
-      demo: "https://music-app-ecru-nine-86.vercel.app"
+      github: "https://github.com/13camilaaaaa/MusicApp.git",
+      demo: ""
     },
 
     // CAMBIO IMPORTANTE: Agregamos este campo para la advertencia
@@ -122,8 +122,8 @@ export const PROJECTS: Project[] = [
     ],
 
     links: {
-      github: "https://github.com/junkamilo/Proyectos/tree/main/variedadesLili",
-      demo: "https://proyectos-5stx.vercel.app/"
+      github: "https://github.com/13camilaaaaa/Proyectos/tree/main/variedadesLili",
+      demo: ""
     },
 
     demoNote: "Nota de Infraestructura: El backend y la base de datos están alojados en planes gratuitos (Render / TiDB). Estos servicios entran en suspensión por inactividad (Cold Start). Si la demo no carga datos inmediatamente, por favor espera unos 30-60 segundos mientras el servidor se reactiva.",
@@ -166,8 +166,8 @@ export const PROJECTS: Project[] = [
     ],
 
     links: {
-      github: "https://github.com/junkamilo/Proyectos/tree/main/VariedadesLiliCLientes/VariedadeLiliClientes_Frontend", // Asegúrate de que este link sea el correcto
-      demo: "https://proyecto-variedades-lili-cliente.vercel.app"
+      github: "https://github.com/13camilaaaaa/Proyectos/tree/main/VariedadesLiliCLientes/VariedadeLiliClientes_Frontend", // Asegúrate de que este link sea el correcto
+      demo: ""
     },
 
     // ⚠️ CRUCIAL: La misma nota, ya que consumen la misma API
@@ -213,7 +213,7 @@ export const PROJECTS: Project[] = [
     ],
 
     links: {
-      github: "https://github.com/junkamilo/RestauranteApp/tree/main/Restaurante_app",
+      github: "https://github.com/13camilaaaaa/RestauranteApp/tree/main/Restaurante_app",
       // ALERTA: No ponemos demo porque es local.
       // El código del botón "Ver Demo" no se renderizará si este campo no existe, así que perfecto.
     },
@@ -257,8 +257,8 @@ export const PROJECTS: Project[] = [
     ],
 
     links: {
-      github: "https://github.com/junkamilo/urban-shop-repo", // PON AQUÍ TU LINK REAL
-      demo: "https://urban-shop-demo.vercel.app" // PON AQUÍ TU LINK REAL
+      github: "https://github.com/13camilaaaaa/urban-shop-repo", // PON AQUÍ TU LINK REAL
+      demo: ""
     },
 
     // ⚠️ LA NOTA DE INFRAESTRUCTURA (Crucial por TiDB/Render)

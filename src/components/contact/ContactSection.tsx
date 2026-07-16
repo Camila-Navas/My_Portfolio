@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react";
-import { Mail, Copy, Check } from "lucide-react"; // Simplifiqué imports
+import { Mail, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CONTACT_EMAIL, SOCIAL_LINKS } from "@/src/config/contact-data";
+import { ContactForm } from "./ContactForm";
 
 export function ContactSection() {
   const [isCopied, setIsCopied] = useState(false);
@@ -25,12 +26,24 @@ export function ContactSection() {
 
         <div className="space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            ¿Buscas fortalecer tu equipo de desarrollo?
+            ¿Necesitas reforzar tu equipo con un perfil técnico versátil?
           </h2>
           <p className="text-gray-600 text-lg">
-            Estoy listo para integrarme de inmediato como <span className="text-black font-semibold">Frontend</span> o <span className="text-black font-semibold">Full Stack Developer</span>. 
-            Si necesitas código limpio, testing y alguien con una rápida curva de aprendizaje, aquí estoy.
+            Estoy lista para aportar como <span className="text-black font-semibold">Software Developer</span>, <span className="text-black font-semibold">QA Analyst</span> o en <span className="text-black font-semibold">IT Support</span>.
+            Combino desarrollo de software, aseguramiento de calidad y resolución de incidencias para fortalecer tu producto desde el primer día, con código limpio, atención al detalle y comunicación efectiva.
           </p>
+        </div>
+
+        {/* --- FORMULARIO DE CONTACTO --- */}
+        <ContactForm />
+
+        {/* --- SEPARADOR --- */}
+        <div className="flex items-center gap-3 max-w-md mx-auto">
+          <div className="flex-1 h-px bg-gray-200" />
+          <span className="text-xs uppercase tracking-wider text-gray-400">
+            o tambien
+          </span>
+          <div className="flex-1 h-px bg-gray-200" />
         </div>
 
         {/* --- COPY EMAIL CARD --- */}

@@ -28,7 +28,7 @@ const getTypeColor = (type: string) => {
   switch (type) {
     case "education": return "text-blue-500 bg-blue-500/10 border-blue-500/20";
     case "work": return "text-green-500 bg-green-500/10 border-green-500/20";
-    case "course": return "text-purple-500 bg-purple-500/10 border-purple-500/20";
+    case "course": return "text-cyan-500 bg-cyan-500/10 border-cyan-500/20";
     default: return "text-primary bg-primary/10 border-primary/20";
   }
 };

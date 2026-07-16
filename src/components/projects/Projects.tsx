@@ -1,13 +1,29 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Github, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { containerVariants } from "@/src/config/hero-data";
 import { PROJECTS } from "@/src/config/projects-data";
 import { ProjectCard } from "./ProjectCard";
+import { ProjectsStack } from "./ProjectsStack";
+
+const ALL = "Todos";
 
 export default function Projects() {
+  const categories = useMemo(() => {
+    const set = new Set<string>();
+    PROJECTS.forEach((p) => set.add(p.category));
+    return [ALL, ...Array.from(set)];
+  }, []);
+
+  const [active, setActive] = useState<string>(ALL);
+
+  const filtered = useMemo(() => {
+    if (active === ALL) return PROJECTS;
+    return PROJECTS.filter((p) => p.category === active);
+  }, [active]);
+
   return (
     <section id="proyectos" className="py-24 bg-background relative overflow-hidden">
 
@@ -22,7 +38,7 @@ export default function Projects() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16 space-y-4"
+          className="text-center mb-12 space-y-4"
         >
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground">
             Proyectos Destacados
@@ -32,18 +48,73 @@ export default function Projects() {
           </p>
         </motion.div>
 
+        {/* V30: Stack view tipo Apple para los primeros 3 proyectos */}
+        <ProjectsStack projects={PROJECTS.slice(0, 3)} />
+
+        {/* Filtros por categoría (V31) */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-wrap justify-center gap-2 mb-12"
+          role="tablist"
+          aria-label="Filtrar proyectos por categoría"
+        >
+          {categories.map((cat) => {
+            const isActive = active === cat;
+            return (
+              <button
+                key={cat}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActive(cat)}
+                className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors border ${
+                  isActive
+                    ? "text-primary-foreground border-transparent"
+                    : "text-muted-foreground border-border/60 hover:text-foreground hover:border-border"
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="projects-filter-pill"
+                    className="absolute inset-0 rounded-full bg-primary"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                    aria-hidden="true"
+                  />
+                )}
+                <span className="relative z-10">{cat}</span>
+              </button>
+            );
+          })}
+        </motion.div>
+
         {/* Grid de Proyectos */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          layout
           className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto"
         >
-          {PROJECTS.map((project, index) => (
-            <ProjectCard key={index} project={project} />
-          ))}
+          <AnimatePresence mode="popLayout">
+            {filtered.map((project) => (
+              <motion.div
+                key={project.slug}
+                layout
+                initial={{ opacity: 0, y: 24, scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.96 }}
+                transition={{ duration: 0.35, ease: [0.2, 0.65, 0.3, 0.9] }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </motion.div>
+
+        {filtered.length === 0 && (
+          <p className="text-center text-muted-foreground mt-10">
+            No hay proyectos en esta categoría todavía.
+          </p>
+        )}
 
         {/* CTA Final */}
         <motion.div
@@ -67,7 +138,7 @@ export default function Projects() {
               className="gap-2 group shadow-md bg-black text-white hover:bg-gray-800 transition-all border-0"
               asChild
             >
-              <a href="https://github.com/junkamilo" target="_blank" rel="noreferrer">
+              <a href="https://github.com/13camilaaaaa" target="_blank" rel="noreferrer">
                 <Github className="w-4 h-4" />
                 Explorar GitHub
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

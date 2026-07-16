@@ -40,11 +40,11 @@ export default function Footer() {
             
             {/* LOGO */}
             <a href="#inicio" className="flex items-center gap-2 group w-fit">
-              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-purple-600 text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-cyan-600 text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
                  <span className="font-bold text-sm">D</span>
               </div>
               <span className="text-xl font-bold tracking-tight text-zinc-100">
-                DevJuan
+                DevCamila
               </span>
             </a>
 
@@ -94,7 +94,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
             
             <p className="text-xs text-zinc-600 flex items-center gap-1">
-                © {currentYear} DevJuan. Hecho con <Heart size={10} className="text-red-500 fill-red-500 animate-pulse" /> y Next.js
+                © {currentYear} DevCamila. Hecho con <Heart size={10} className="text-red-500 fill-red-500 animate-pulse" /> y Next.js
             </p>
 
             {/* Botón Scroll Top */}

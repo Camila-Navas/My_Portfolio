@@ -2,7 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+} from "framer-motion";
 import { ExternalLink, Github, FolderGit2, ArrowRight, AlertTriangle, Rocket } from "lucide-react";
 import {
   AlertDialog,
@@ -23,19 +28,46 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    mouseX.set(e.clientX - rect.left);
+    mouseY.set(e.clientY - rect.top);
+  }
+
   return (
     <motion.article
+      ref={ref}
+      onMouseMove={handleMouseMove}
       variants={cardVariants}
-      // ANIMACIÓN AGREGADA: whileHover={{ y: -5 }} para movimiento leve hacia arriba
       whileHover={{ y: -5 }}
-      transition={{ type: "spring", stiffness: 300 }} // Suaviza la animación
-      className="group relative bg-card border border-border/50 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/20 transition-all duration-300 flex flex-col h-full"
+      transition={{ type: "spring", stiffness: 300 }}
+      className="group relative bg-card border border-border/50 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/30 transition-all duration-300 flex flex-col h-full glow-border"
     >
+      {/* V19: Spotlight radial siguiendo al cursor */}
+      <motion.div
+        className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[1] rounded-2xl"
+        style={{
+          background: useMotionTemplate`
+            radial-gradient(
+              500px circle at ${mouseX}px ${mouseY}px,
+              rgba(var(--primary-rgb), 0.12),
+              transparent 70%
+            )
+          `,
+        }}
+        aria-hidden="true"
+      />
       {/* 1. CARD IMAGE */}
       <Link
         href={`/proyectos/${project.slug}`}
-        className="block cursor-pointer overflow-hidden relative group/image h-52 w-full bg-muted"
+        className="relative z-10 block cursor-pointer overflow-hidden group/image h-52 w-full bg-muted"
         aria-label={`Ver detalles del proyecto ${project.title}`}
+        style={{ viewTransitionName: `project-image-${project.slug}` }}
       >
           {/* Next/Image para optimización */}
           <Image
@@ -59,10 +91,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </Link>
 
       {/* 2. CONTENIDO */}
-      <div className="p-6 flex flex-col flex-grow relative">
+      <div className="relative z-10 p-6 flex flex-col flex-grow">
         <div className="flex justify-between items-start mb-3">
           <Link href={`/proyectos/${project.slug}`} className="block group/title flex-1 mr-2">
-            <h3 className="text-xl font-bold text-foreground group-hover/title:text-primary transition-colors flex items-center gap-2 line-clamp-1">
+            <h3
+              className="text-xl font-bold text-foreground group-hover/title:text-primary transition-colors flex items-center gap-2 line-clamp-1"
+              style={{ viewTransitionName: `project-title-${project.slug}` }}
+            >
               {project.title}
               <ArrowRight size={16} className="opacity-0 -translate-x-2 group-hover/title:opacity-100 group-hover/title:translate-x-0 transition-all duration-300 text-primary" />
             </h3>

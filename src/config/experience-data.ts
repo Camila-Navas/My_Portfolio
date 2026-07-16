@@ -6,26 +6,21 @@ import { Variants } from "framer-motion";
 export const WORK_EXPERIENCE = [
   {
     id: 1,
-    // 🏆 RAPPI PRIMERO: Tu carta de presentación más fuerte.
-    role: "QA Analyst & Frontend Testing",
-    company: "Rappi", // Unicornio Tech
-    location: "Remoto",
-    period: "2025 - 2026",
-    // Descripción técnica enfocada en calidad y colaboración con Devs
-    description: "Aseguramiento de calidad en flujos críticos de la vertical de Restaurantes. Colaboración directa con equipos de Ingeniería para la detección temprana de bugs en componentes React, reduciendo la deuda técnica y mejorando la estabilidad del release.",
-    skills: ["Jira", "React", "Testing Manual", "Scrum", "Git Flow"],
+    role: "Auxiliar de Sistemas",
+    company: "ODIR Certificaciones S.A.S",
+    location: "Presencial",
+    period: "Julio 2025 - Actualidad",
+    description: "Soporte técnico de primer nivel a usuarios internos: diagnóstico y resolución de incidencias de hardware, software y red. Apoyo en la administración de equipos, mantenimiento preventivo y correctivo, gestión de inventario tecnológico y acompañamiento en procesos de mejora continua del área de sistemas.",
+    skills: ["Soporte Técnico", "Resolución de Incidencias", "Mantenimiento de Equipos", "Redes", "Office 365", "Gestión de Inventario"],
   },
   {
     id: 2,
-    // 💻 TUS PROYECTOS: Demuestran que sabes programar de principio a fin.
-    // "Portafolio Profesional" es honesto y técnico.
-    role: "Desarrollador Full Stack (Portafolio)",
-    company: "Proyectos Personales", 
+    role: "Desarrolladora Full Stack (Portafolio)",
+    company: "Proyectos Personales",
     location: "Remoto",
     period: "2024 - Presente",
-    // Descripción enfocada en ARQUITECTURA y DESPLIEGUE (lo que no hiciste en Rappi)
-    description: "Diseño y desarrollo de aplicaciones web end-to-end simulando entornos de producción. Implementación de arquitecturas escalables, integración de APIs y optimización de rendimiento (SEO/Core Web Vitals).",
-    skills: ["Next.js", "TypeScript", "Tailwind CSS"],
+    description: "Diseño y desarrollo de aplicaciones web end-to-end aplicando buenas prácticas de código limpio, testing y despliegue. Implementación de arquitecturas escalables, integración de APIs y prácticas de QA para garantizar la calidad del producto final.",
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Testing"],
   },
 ];
 
@@ -38,42 +33,41 @@ export const EDUCATION = [
     slug: "tecnologia-analisis-desarrollo-software",
     title: "Tecnólogo en Análisis y Desarrollo de Software",
     institution: "SENA",
-    period: "2022 - 2024",
-    type: "degree", 
+    period: "2024 - 2026",
+    type: "degree",
   },
   {
     id: 2,
-    slug: "react-guia-completa",
-    title: "React - La Guía Completa",
-    institution: "Udemy",
-    period: "2023",
+    slug: "soporte-tecnico-fundamentos",
+    title: "Fundamentos de Soporte Técnico y Help Desk",
+    institution: "Plataforma de Cursos",
+    period: "2025",
     type: "certificate",
   },
   {
     id: 3,
-    slug: "javascript-moderno", 
-    title: "JavaScript Moderno",
-    institution: "Udemy",
-    period: "2023",
-    type: "certificate",
-  },
-   {
-    id: 4,
     slug: "qa-testing-fundamentals",
-    title: "Software Testing & Quality Assurance", // Título internacional y profesional
-    institution: "Udemy", // 👈 Edita esto con la plataforma real
-    period: "2024",
-    type: "certificate",
- },
- {
-    id: 5,
-    slug: "nextjs-fullstack-guide",
-    title: "Next.js", // Título internacional y profesional
-    institution: "Udemy", // 👈 Edita esto con la plataforma real
+    title: "Software Testing & Quality Assurance",
+    institution: "Plataforma de Cursos",
     period: "2025",
     type: "certificate",
- },
-
+  },
+  {
+    id: 4,
+    slug: "automatizacion-pruebas",
+    title: "Automatización de Pruebas",
+    institution: "Plataforma de Cursos",
+    period: "2025",
+    type: "certificate",
+  },
+  {
+    id: 5,
+    slug: "javascript-moderno",
+    title: "JavaScript Moderno",
+    institution: "Plataforma de Cursos",
+    period: "2025",
+    type: "certificate",
+  },
 ];
 
 

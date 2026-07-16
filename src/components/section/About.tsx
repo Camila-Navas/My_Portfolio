@@ -2,19 +2,27 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Sparkles } from "lucide-react";
 import { containerVariants, itemVariants } from "@/src/config/hero-data";
 import { ABOUT_DATA } from "@/src/config/about-data";
+import { NumberCounter } from "./NumberCounter";
+
+const FORMATION_START_YEAR = 2024;
 
 export default function About() {
   const targetRef = useRef(null);
-  
-  // Hook para animar la línea de tiempo
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "center center"],
   });
 
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const yearsOfFormation = Math.max(
+    1,
+    new Date().getFullYear() - FORMATION_START_YEAR
+  );
+  const totalSkills = ABOUT_DATA.timeline.length;
 
   return (
     <section 
@@ -43,7 +51,7 @@ export default function About() {
                 {ABOUT_DATA.title}
               </h2>
               {/* Subtítulo Morado (Visible en ambos modos) */}
-              <p className="text-xl font-semibold text-purple-700 dark:text-purple-400">
+              <p className="text-xl font-semibold text-cyan-700 dark:text-cyan-400">
                 {ABOUT_DATA.subtitle}
               </p>
             </motion.div>
@@ -57,7 +65,7 @@ export default function About() {
               {/* Línea de Color Animada */}
               <motion.div 
                 style={{ height: lineHeight }}
-                className="absolute left-[9px] top-2 w-[2px] bg-purple-600 dark:bg-purple-500 origin-top"
+                className="absolute left-[9px] top-2 w-[2px] bg-cyan-600 dark:bg-cyan-500 origin-top"
               />
 
               {ABOUT_DATA.timeline.map((item, index) => (
@@ -68,7 +76,7 @@ export default function About() {
                 >
                   {/* Icono Flotante */}
                   <div className="absolute -left-[49px] md:-left-[51px] top-0 bg-white dark:bg-zinc-950 p-1.5 rounded-full border border-gray-300 dark:border-gray-700 z-10 shadow-sm">
-                    <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-zinc-900 flex items-center justify-center text-gray-600 dark:text-gray-400 group-hover:text-purple-600 dark:group-hover:text-purple-400 group-hover:bg-purple-50 dark:group-hover:bg-purple-900/20 transition-all duration-300">
+                    <div className="w-8 h-8 rounded-full bg-gray-100 dark:bg-zinc-900 flex items-center justify-center text-gray-600 dark:text-gray-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 group-hover:bg-cyan-50 dark:group-hover:bg-cyan-900/20 transition-all duration-300">
                       <item.icon size={16} />
                     </div>
                   </div>
@@ -104,7 +112,7 @@ export default function About() {
                   <span className="text-blue-400">~</span>
                   <span>{ABOUT_DATA.conclusion.cmd}</span>
                 </div>
-                <div className="text-gray-300 leading-relaxed pl-4 border-l-2 border-purple-500/50">
+                <div className="text-gray-300 leading-relaxed pl-4 border-l-2 border-cyan-500/50">
                   {`"${ABOUT_DATA.conclusion.output}"`}
                 </div>
               </div>
@@ -112,46 +120,97 @@ export default function About() {
 
           </div>
 
-          {/* --- COLUMNA DERECHA: Cards Solidas --- */}
-          <div className="relative">
-             
-             <motion.div
-               variants={containerVariants}
-               className="grid grid-cols-2 gap-5"
-             >
-               {ABOUT_DATA.stats.map((stat, index) => (
-                 <motion.div
-                   key={index}
-                   variants={itemVariants}
-                   whileHover={{ y: -5 }}
-                   // CAMBIO 3: Cards Adaptables (Blanco día / Zinc-900 noche)
-                   className={`
-                      group relative p-6 rounded-2xl 
-                      bg-white dark:bg-zinc-900 
-                      border border-gray-200 dark:border-zinc-800 
-                      shadow-sm dark:shadow-none
-                      hover:shadow-md hover:border-purple-300 dark:hover:border-purple-500/50
-                      transition-all duration-300 overflow-hidden
-                   `}
-                 >
-                   <div className="relative z-10 flex flex-col items-center text-center space-y-4">
-                     {/* Icono en caja gris clara / oscura */}
-                     <div className="p-3 rounded-xl bg-gray-50 dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700 text-gray-700 dark:text-gray-300 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300">
-                       <stat.icon size={28} strokeWidth={1.5} />
-                     </div>
-                     
-                     <div>
-                       <h4 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">
-                         {stat.value}
-                       </h4>
-                       <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest mt-1">
-                         {stat.label}
-                       </p>
-                     </div>
-                   </div>
-                 </motion.div>
-               ))}
-             </motion.div>
+          {/* --- V32: COLUMNA DERECHA STICKY --- */}
+          <div className="lg:sticky lg:top-28 space-y-5">
+
+            {/* Panel destacado con NumberCounter (V22) */}
+            <motion.div
+              variants={itemVariants}
+              className="relative overflow-hidden rounded-3xl border border-border/60 bg-gradient-to-br from-card via-card to-primary/5 p-7 shadow-sm glow-border"
+            >
+              <div
+                className="pointer-events-none absolute -top-20 -right-20 w-64 h-64 rounded-full opacity-50 blur-3xl"
+                style={{
+                  background:
+                    "radial-gradient(circle, rgba(var(--primary-rgb), 0.35), transparent 70%)",
+                }}
+                aria-hidden="true"
+              />
+              <div className="relative z-10 space-y-5">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-primary text-[11px] uppercase tracking-widest font-semibold">
+                  <Sparkles size={12} />
+                  En Formacion Activa
+                </div>
+                <div>
+                  <div className="flex items-baseline gap-3">
+                    <NumberCounter
+                      value={yearsOfFormation}
+                      duration={1.4}
+                      className="font-display italic text-7xl text-primary leading-none"
+                    />
+                    <span className="text-xl font-medium text-muted-foreground">
+                      {yearsOfFormation === 1 ? "ano" : "anos"}
+                    </span>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed">
+                    construyendo experiencia tecnica desde
+                    <span className="text-foreground font-semibold">
+                      {" "}
+                      {FORMATION_START_YEAR}
+                    </span>
+                    , con foco en calidad, soporte y desarrollo de software.
+                  </p>
+                </div>
+                <div className="flex items-center gap-4 pt-3 border-t border-border/50">
+                  <div>
+                    <div className="text-2xl font-bold text-foreground">
+                      <NumberCounter value={totalSkills} duration={1.2} />+
+                    </div>
+                    <div className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold">
+                      Hitos clave
+                    </div>
+                  </div>
+                  <div className="h-8 w-px bg-border" />
+                  <div>
+                    <div className="text-2xl font-bold text-foreground">
+                      <NumberCounter value={6} duration={1.2} />
+                    </div>
+                    <div className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold">
+                      Areas tecnicas
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Stats grid compactos */}
+            <motion.div
+              variants={containerVariants}
+              className="grid grid-cols-2 gap-4"
+            >
+              {ABOUT_DATA.stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  whileHover={{ y: -4 }}
+                  className="group relative p-5 rounded-2xl bg-card border border-border/60 transition-all duration-300 overflow-hidden glow-border"
+                >
+                  <div className="relative z-10 flex flex-col gap-3">
+                    <div className="p-2.5 w-fit rounded-xl bg-secondary border border-border/50 text-foreground/70 group-hover:text-primary group-hover:border-primary/30 transition-colors duration-300">
+                      <stat.icon size={20} strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold tracking-tight text-foreground leading-tight">
+                        {stat.value}
+                      </h4>
+                      <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-widest mt-1">
+                        {stat.label}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
 
         </motion.div>

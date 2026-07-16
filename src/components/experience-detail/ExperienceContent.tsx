@@ -54,7 +54,7 @@ export const ExperienceContent = ({ shortDescription, fullDescription, certifica
       >
         {/* Título: Negro en día, Blanco en noche */}
         <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 text-gray-900 dark:text-white">
-          <FileCheck className="text-purple-600 dark:text-purple-400" /> Detalles y Logros
+          <FileCheck className="text-cyan-600 dark:text-cyan-400" /> Detalles y Logros
         </h3>
 
         {/* Lista: Texto gris medio en día, gris claro en noche */}

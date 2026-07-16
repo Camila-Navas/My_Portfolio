@@ -106,7 +106,7 @@ export const ProjectSidebar = ({ project }: ProjectSidebarProps) => {
               )}
               {project.infrastructure.backend && (
                 <div className="flex items-center gap-3 text-sm group">
-                  <div className="p-1.5 rounded-md bg-purple-50 dark:bg-purple-900/20 text-purple-500 dark:text-purple-400">
+                  <div className="p-1.5 rounded-md bg-cyan-50 dark:bg-cyan-900/20 text-cyan-500 dark:text-cyan-400">
                     <Database size={14} />
                   </div>
                   <span className="text-gray-500 dark:text-gray-400">
@@ -135,7 +135,7 @@ export const ProjectSidebar = ({ project }: ProjectSidebarProps) => {
               Rol
             </span>
             <div className="font-medium text-gray-900 dark:text-white flex items-center gap-1.5">
-              <User size={14} className="text-purple-500 dark:text-purple-400" /> {project.role}
+              <User size={14} className="text-cyan-500 dark:text-cyan-400" /> {project.role}
             </div>
           </div>
           <div>
@@ -143,7 +143,7 @@ export const ProjectSidebar = ({ project }: ProjectSidebarProps) => {
               Año
             </span>
             <div className="font-medium text-gray-900 dark:text-white flex items-center gap-1.5">
-              <Calendar size={14} className="text-purple-500 dark:text-purple-400" /> {project.date}
+              <Calendar size={14} className="text-cyan-500 dark:text-cyan-400" /> {project.date}
             </div>
           </div>
         </div>

@@ -47,7 +47,7 @@ export default function Header() {
             <span className="font-bold text-sm">D</span>
           </div>
           <span className="font-bold text-gray-900 dark:text-white tracking-tight transition-colors">
-            Dev<span className="text-gray-600 dark:text-gray-400">Juan</span>
+            Dev<span className="text-gray-600 dark:text-gray-400">Camila</span>
           </span>
         </a>
 
@@ -72,8 +72,8 @@ export default function Header() {
 
           {/* Botón CV */}
           <a
-            href="/cv-juan.pdf"
-            download="Juan_Beltran_CV.pdf"
+            href="/cv-camila.pdf"
+            download="Camila_Vesga_CV.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden sm:flex"
@@ -135,8 +135,8 @@ export default function Header() {
             ))}
             {/* Agrego el botón CV aquí también para móviles si quieres */}
             <a
-                href="/cv-juan.pdf"
-                download="Juan_Beltran_CV.pdf"
+                href="/cv-camila.pdf"
+                download="Camila_Vesga_CV.pdf"
                 className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 dark:hover:bg-zinc-900 text-gray-700 dark:text-gray-200 font-medium transition-colors border-t border-gray-100 dark:border-gray-800 mt-2"
               >
                 Descargar CV <FileDown size={16}/>

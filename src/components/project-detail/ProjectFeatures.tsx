@@ -35,11 +35,11 @@ export const ProjectFeatures = ({ features }: ProjectFeaturesProps) => {
             className="flex items-start gap-3 p-4 rounded-xl 
             bg-white dark:bg-zinc-900 
             border border-gray-200 dark:border-zinc-800 
-            shadow-sm hover:border-purple-200 dark:hover:border-purple-500/50 
+            shadow-sm hover:border-cyan-200 dark:hover:border-cyan-500/50 
             transition-all"
           >
             {/* Check Icon: Fondo morado claro (día) / Morado oscuro (noche) */}
-            <div className="mt-1 p-1 bg-purple-50 dark:bg-purple-900/20 rounded-full text-purple-600 dark:text-purple-400 shrink-0">
+            <div className="mt-1 p-1 bg-cyan-50 dark:bg-cyan-900/20 rounded-full text-cyan-600 dark:text-cyan-400 shrink-0">
               <CheckCircle2 size={14} />
             </div>
             

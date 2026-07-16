@@ -5,6 +5,7 @@ import { fadeInUp, staggerContainer } from "./animations";
 
 interface ProjectHeroProps {
   project: {
+    slug: string;
     category: string;
     date: string;
     title: string;
@@ -27,7 +28,7 @@ export const ProjectHero = ({ project }: ProjectHeroProps) => {
           {/* Badge Categoría: Adaptable a Dark Mode */}
           <Badge 
             variant="outline" 
-            className="px-3 py-1 text-sm border-purple-200 bg-purple-50 text-purple-700 shadow-sm dark:border-purple-800 dark:bg-purple-900/30 dark:text-purple-300"
+            className="px-3 py-1 text-sm border-cyan-200 bg-cyan-50 text-cyan-700 shadow-sm dark:border-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300"
           >
             {project.category}
           </Badge>
@@ -44,6 +45,7 @@ export const ProjectHero = ({ project }: ProjectHeroProps) => {
         {/* Título: Negro en día, Blanco en noche */}
         <motion.h1
           variants={fadeInUp}
+          style={{ viewTransitionName: `project-title-${project.slug}` }}
           className="text-4xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-6 leading-tight pb-2"
         >
           {project.title}
@@ -65,7 +67,10 @@ export const ProjectHero = ({ project }: ProjectHeroProps) => {
         className="relative mb-24 group max-w-6xl mx-auto"
       >
         {/* Contenedor Imagen: Borde y fondo oscuros en modo noche */}
-        <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-200 dark:border-zinc-800 shadow-2xl bg-gray-50 dark:bg-zinc-900">
+        <div
+          className="relative aspect-video rounded-xl overflow-hidden border border-gray-200 dark:border-zinc-800 shadow-2xl bg-gray-50 dark:bg-zinc-900"
+          style={{ viewTransitionName: `project-image-${project.slug}` }}
+        >
           <img
             src={project.mainImage}
             alt={project.title}

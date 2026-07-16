@@ -3,13 +3,19 @@ import { Variants } from "framer-motion";
 // Configuración del contenido (Fácil de editar en el futuro)
 export const HERO_CONTENT = {
   badge: "Disponible para trabajar",
-  name: "Juan Beltran",
-  role: "Software Developer | Frontend & QA Testing",
-  description: "Desarrollador de Software especializado en el ecosistema JavaScript (React, TypeScript, Node.js). Combino el desarrollo de interfaces modernas con arquitecturas backend sólidas, aplicando estrategias de testing y código limpio para entregar soluciones escalables y fiables.",
+  name: "Maria Camila Vesga Navas",
+  role: "Tecnólogo en Análisis y Desarrollo de Software",
+  roles: [
+    "Software Developer",
+    "QA Analyst",
+    "IT Support",
+    "Automatización de Pruebas",
+  ] as const,
+  description: "Software Developer | QA Analyst | IT Support | Automatización de Pruebas | Resolución de Incidencias",
   social: {
-    github: "https://github.com/junkamilo",
-    linkedin: "https://www.linkedin.com/in/juan-camilo-beltr%C3%A1n-campo-4aa1b3202/?trk=public-profile-join-page",
-    email: "mailto:juancamilo.campobarrios@gmail.com",
+    github: "https://github.com/13camilaaaaa",
+    linkedin: "https://www.linkedin.com/in/camila-navas13",
+    email: "mailto:camilanavas13@gmail.com",
   },
   image: "/fotoPerfilHojaVida.png"
 };

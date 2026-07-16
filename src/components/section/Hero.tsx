@@ -6,6 +6,8 @@ import { ArrowRight, Mail, ChevronDown, Linkedin, Check, Copy } from "lucide-rea
 import { Button } from "@/components/ui/button";
 import { containerVariants, HERO_CONTENT, itemVariants } from "@/src/config/hero-data";
 import { ProfileImage } from "./ProfileImage";
+import { Typewriter } from "./Typewriter";
+import { InteractiveGrid } from "./InteractiveGrid";
 
 export default function Hero() {
   const [isCopied, setIsCopied] = useState(false);
@@ -26,9 +28,21 @@ export default function Hero() {
       // CAMBIO 1: Soporte Dark Mode en el fondo principal
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-zinc-950 pt-20 pb-10 transition-colors duration-300"
     >
-      {/* --- FONDO SIMPLE --- */}
-      {/* CAMBIO 2: Grid sutil que cambia de color en modo oscuro */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      {/* --- V02: GRADIENT MESH ANIMADO --- */}
+      <div className="gradient-mesh" aria-hidden="true" />
+
+      {/* V42: Grid interactivo que reacciona al cursor */}
+      <InteractiveGrid cellSize={28} glowRadius={220} />
+
+      {/* Halo central sutil */}
+      <div
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] rounded-full blur-3xl opacity-40 dark:opacity-25 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(var(--primary-rgb), 0.18), transparent 60%)",
+        }}
+        aria-hidden="true"
+      />
 
       <div className="container px-4 md:px-6 relative z-10">
         <motion.div
@@ -48,34 +62,33 @@ export default function Hero() {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              {/* CAMBIO 3: Badge adaptable (Gris claro en día, Gris oscuro en noche) */}
-              <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full border transition-all duration-300 ${isCopied
-                  ? "border-green-200 bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400 dark:border-green-800"
-                  : "border-gray-200 bg-gray-50 text-gray-600 hover:border-gray-400 hover:text-black dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400 dark:hover:text-white dark:hover:border-zinc-600"
+              <span className={`inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border backdrop-blur-md transition-all duration-300 ${isCopied
+                  ? "border-green-300/60 bg-green-50/60 text-green-700 dark:bg-green-900/20 dark:text-green-400 dark:border-green-800/60"
+                  : "border-border bg-background/60 text-muted-foreground hover:border-primary/40 hover:text-foreground"
                 } text-xs font-medium`}>
-                <span className="relative flex h-2 w-2">
-                  <span className={`relative inline-flex rounded-full h-2 w-2 ${isCopied ? "bg-green-500" : "bg-green-500"}`}></span>
-                </span>
-                {isCopied ? "¡Email Copiado!" : HERO_CONTENT.badge}
-                {isCopied ? <Check size={12} /> : <Copy size={12} className="opacity-50 group-hover:opacity-100" />}
+                {!isCopied && <span className="dot-pulse" aria-hidden="true" />}
+                {isCopied ? "Email Copiado" : HERO_CONTENT.badge}
+                {isCopied ? <Check size={12} /> : <Copy size={12} className="opacity-50 group-hover:opacity-100 transition-opacity" />}
               </span>
             </motion.div>
 
-            {/* --- TÍTULO --- */}
+            {/* --- V01: TIPOGRAFIA DISPLAY EN EL TITULO --- */}
             <motion.h1
               variants={itemVariants}
-              // CAMBIO 4: Texto adaptable (Negro día / Blanco noche)
-              className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-black dark:text-white mb-6"
+              className="text-[clamp(2.5rem,7vw,5.25rem)] leading-[0.95] tracking-tight text-foreground mb-6 font-bold"
             >
-              Hola, soy{" "}
-              {/* Morado en ambos modos para resaltar */}
-              <span className="text-purple-600 dark:text-purple-400">
+              <span className="block text-muted-foreground text-[0.4em] font-semibold tracking-widest uppercase mb-3">
+                Hola, soy
+              </span>
+              <span className="font-display italic text-[1.05em] block bg-gradient-to-br from-primary via-primary to-accent-foreground bg-clip-text text-transparent">
                 {HERO_CONTENT.name}
               </span>
-              <br />
-              {/* Subtítulo adaptable */}
-              <span className="text-gray-700 dark:text-gray-300 text-2xl sm:text-4xl md:text-5xl block mt-2 font-semibold">
-                {HERO_CONTENT.role}
+              <span className="block text-foreground/85 text-[0.45em] sm:text-[0.4em] mt-4 font-medium tracking-tight">
+                <Typewriter
+                  words={HERO_CONTENT.roles}
+                  className="inline-flex items-baseline text-primary"
+                  cursorClassName="inline-block w-[2px] h-[0.9em] align-[-0.1em] ml-1 bg-primary animate-pulse"
+                />
               </span>
             </motion.h1>
 
