@@ -98,7 +98,7 @@ export function GitHubStats() {
       <div className="rounded-2xl border border-gray-200 dark:border-zinc-800 p-8 text-center text-gray-500 dark:text-zinc-400 text-sm">
         {error}.{" "}
         <a
-          href={`https://github.com/13camilaaaaa`}
+          href={`https://github.com/Camila-Navas`}
           target="_blank"
           rel="noopener noreferrer"
           className="underline hover:text-gray-900 dark:hover:text-white"

@@ -12,7 +12,7 @@ export const SOCIAL_LINKS = [
     name: "github",
     icon: Github,
     label: "GitHub",
-    href: "https://github.com/13camilaaaaa",
+    href: "https://github.com/Camila-Navas",
     className: "hover:text-foreground hover:border-foreground",
   },
 ];

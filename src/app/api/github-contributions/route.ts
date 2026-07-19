@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const USERNAME = "13camilaaaaa";
+const USERNAME = "Camila-Navas";
 const CACHE_SECONDS = 3600;
 
 export const revalidate = 3600;

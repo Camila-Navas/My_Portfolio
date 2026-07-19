@@ -124,7 +124,7 @@ export default async function OpengraphImage() {
             C
           </div>
           <span style={{ fontSize: 22, color: "#a1a1aa" }}>
-            github.com/13camilaaaaa
+            github.com/Camila-Navas
           </span>
         </div>
       </div>

@@ -13,7 +13,7 @@ export const HERO_CONTENT = {
   ] as const,
   description: "Software Developer | QA Analyst | IT Support | Automatización de Pruebas | Resolución de Incidencias",
   social: {
-    github: "https://github.com/13camilaaaaa",
+    github: "https://github.com/Camila-Navas",
     linkedin: "https://www.linkedin.com/in/camila-navas13",
     email: "mailto:camilanavas13@gmail.com",
   },

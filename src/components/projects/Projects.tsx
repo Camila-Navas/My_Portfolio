@@ -138,7 +138,7 @@ export default function Projects() {
               className="gap-2 group shadow-md bg-black text-white hover:bg-gray-800 transition-all border-0"
               asChild
             >
-              <a href="https://github.com/13camilaaaaa" target="_blank" rel="noreferrer">
+              <a href="https://github.com/Camila-Navas" target="_blank" rel="noreferrer">
                 <Github className="w-4 h-4" />
                 Explorar GitHub
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

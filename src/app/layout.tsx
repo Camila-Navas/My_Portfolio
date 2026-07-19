@@ -84,7 +84,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    creator: "@13camilaaaaa",
   },
   alternates: {
     canonical: SITE_URL,
