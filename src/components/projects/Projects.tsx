@@ -1,30 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Github, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PROJECTS } from "@/src/config/projects-data";
-import { ProjectCard } from "./ProjectCard";
-import { ProjectsStack } from "./ProjectsStack";
 import { GitHubRepos } from "./GitHubRepos";
 
-const ALL = "Todos";
-
 export default function Projects() {
-  const categories = useMemo(() => {
-    const set = new Set<string>();
-    PROJECTS.forEach((p) => set.add(p.category));
-    return [ALL, ...Array.from(set)];
-  }, []);
-
-  const [active, setActive] = useState<string>(ALL);
-
-  const filtered = useMemo(() => {
-    if (active === ALL) return PROJECTS;
-    return PROJECTS.filter((p) => p.category === active);
-  }, [active]);
-
   return (
     <section id="proyectos" className="py-24 bg-background relative overflow-hidden">
 
@@ -39,106 +20,24 @@ export default function Projects() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12 space-y-4"
+          className="text-center mb-4 space-y-4"
         >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gray-200 dark:border-zinc-800 text-xs uppercase tracking-wider text-gray-500 dark:text-zinc-400">
+            <Github size={14} />
+            Actualizado automaticamente
+          </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground">
             Proyectos Destacados
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Soluciones reales que demuestran arquitectura sólida, código limpio y visión de producto.
+            Mis repositorios publicos con mas estrellas, traidos en vivo desde la API de GitHub.
           </p>
         </motion.div>
 
-        {/* V30: Stack view tipo Apple para los primeros 3 proyectos */}
-        <ProjectsStack projects={PROJECTS.slice(0, 3)} />
-
-        {/* Filtros por categoría (V31) */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-2 mb-12"
-          role="tablist"
-          aria-label="Filtrar proyectos por categoría"
-        >
-          {categories.map((cat) => {
-            const isActive = active === cat;
-            return (
-              <button
-                key={cat}
-                type="button"
-                role="tab"
-                aria-selected={isActive}
-                onClick={() => setActive(cat)}
-                className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors border ${
-                  isActive
-                    ? "text-primary-foreground border-transparent"
-                    : "text-muted-foreground border-border/60 hover:text-foreground hover:border-border"
-                }`}
-              >
-                {isActive && (
-                  <motion.span
-                    layoutId="projects-filter-pill"
-                    className="absolute inset-0 rounded-full bg-primary"
-                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                    aria-hidden="true"
-                  />
-                )}
-                <span className="relative z-10">{cat}</span>
-              </button>
-            );
-          })}
-        </motion.div>
-
-        {/* Grid de Proyectos */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto"
-        >
-          <AnimatePresence mode="popLayout">
-            {filtered.map((project) => (
-              <motion.div
-                key={project.slug}
-                layout
-                initial={{ opacity: 0, y: 24, scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.96 }}
-                transition={{ duration: 0.35, ease: [0.2, 0.65, 0.3, 0.9] }}
-              >
-                <ProjectCard project={project} />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-
-        {filtered.length === 0 && (
-          <p className="text-center text-muted-foreground mt-10">
-            No hay proyectos en esta categoría todavía.
-          </p>
-        )}
-
-        {/* Repositorios de GitHub (automatico, top por estrellas) */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-24 max-w-6xl mx-auto"
-        >
-          <div className="text-center mb-10 space-y-3">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gray-200 dark:border-zinc-800 text-xs uppercase tracking-wider text-gray-500 dark:text-zinc-400">
-              <Github size={14} />
-              Actualizado automaticamente
-            </div>
-            <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
-              Repositorios de GitHub
-            </h3>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Los repositorios publicos con mas estrellas, traidos en vivo desde la API de GitHub.
-            </p>
-          </div>
-
+        {/* Grid de Repositorios de GitHub */}
+        <div className="mt-12 max-w-6xl mx-auto">
           <GitHubRepos />
-        </motion.div>
+        </div>
 
         {/* CTA Final */}
         <motion.div
@@ -156,7 +55,6 @@ export default function Projects() {
               Explora mis repositorios para ver mis proyectos personales.
             </p>
 
-            {/* CAMBIO CLAVE: Botón con colores explícitos (Negro sólido) */}
             <Button
               size="lg"
               className="gap-2 group shadow-md bg-black text-white hover:bg-gray-800 transition-all border-0"
