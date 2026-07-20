@@ -26,22 +26,22 @@ const instrumentSerif = Instrument_Serif({
 });
 
 const SITE_URL = "https://camila-portfolio.vercel.app";
-const SITE_NAME = "Maria Camila Vesga Navas - Portafolio";
-const TITLE = "Maria Camila Vesga Navas | Software Developer & QA Analyst";
+const SITE_NAME = "Camila Vesga Navas - Portafolio";
+const TITLE = "Camila Vesga Navas | Software Developer & QA Analyst";
 const DESCRIPTION =
-  "Portafolio profesional de Maria Camila Vesga Navas. Software Developer, QA Analyst e IT Support. Tecnologa en Analisis y Desarrollo de Software con experiencia en automatizacion de pruebas y resolucion de incidencias.";
+  "Portafolio profesional de Camila Vesga Navas. Software Developer, QA Analyst e IT Support. Tecnologa en Analisis y Desarrollo de Software (SENA) y estudiante de Ingenieria de Sistemas (UNAD), con experiencia en ODIR Certificaciones combinando desarrollo, QA y soporte tecnico.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: TITLE,
-    template: "%s | Maria Camila Vesga Navas",
+    template: "%s | Camila Vesga Navas",
   },
   description: DESCRIPTION,
   applicationName: SITE_NAME,
-  authors: [{ name: "Maria Camila Vesga Navas", url: SITE_URL }],
-  creator: "Maria Camila Vesga Navas",
-  publisher: "Maria Camila Vesga Navas",
+  authors: [{ name: "Camila Vesga Navas", url: SITE_URL }],
+  creator: "Camila Vesga Navas",
+  publisher: "Camila Vesga Navas",
   category: "portfolio",
   keywords: [
     "Maria Camila Vesga Navas",

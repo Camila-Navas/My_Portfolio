@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# datos personales (telefono, correos alternos) - no publicar
+PERFIL_CAMILA_VESGA.md

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Maria Camila Vesga Navas - Software Developer, QA Analyst, IT Support";
+export const alt = "Camila Vesga Navas - Software Developer, QA Analyst, IT Support";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -57,7 +57,7 @@ export default async function OpengraphImage() {
             color: "#ffffff",
           }}
         >
-          Maria Camila
+          Camila
         </h1>
         <h1
           style={{

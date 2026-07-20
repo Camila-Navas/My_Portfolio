@@ -9,20 +9,20 @@ export const ABOUT_DATA = {
     timeline: [
         {
             id: 1,
-            title: "Tecnólogo en Análisis y Desarrollo de Software (SENA)",
-            description: "Formación integral en programación, bases de datos, metodologías ágiles y buenas prácticas de desarrollo de software.",
+            title: "Formación en Software (SENA + UNAD)",
+            description: "Tecnóloga en Análisis y Desarrollo de Software (SENA) y estudiante de Ingeniería de Sistemas (UNAD). Base sólida en programación, bases de datos y buenas prácticas de desarrollo.",
             icon: BookOpen,
         },
         {
             id: 2,
-            title: "Auxiliar de Sistemas en ODIR Certificaciones",
-            description: "Soporte técnico, resolución de incidencias y mantenimiento de equipos en un entorno empresarial real, fortaleciendo el análisis y la atención al usuario.",
+            title: "Trayectoria en ODIR Certificaciones",
+            description: "Un año de experiencia en el sector TIC: inicié como Practicante de Desarrollo de Software y, por desempeño, fui vinculada como Auxiliar de Sistemas en el mismo equipo.",
             icon: Headset,
         },
         {
             id: 3,
-            title: "Enfoque en QA y Desarrollo de Software",
-            description: "Especialización en aseguramiento de calidad, automatización de pruebas y desarrollo Full Stack con stack moderno (React, Next.js, TypeScript).",
+            title: "Visión integral del ciclo de vida del software",
+            description: "Construyo aplicaciones, las valido con testing y sostengo su operación resolviendo incidencias: un enfoque que combina desarrollo, QA y soporte técnico.",
             icon: ShieldCheck,
         },
     ],
@@ -62,7 +62,7 @@ export const ABOUT_DATA = {
     ],
     conclusion: {
         cmd: "echo $PROPUESTA_VALOR",
-        output: "Análisis, calidad y resolución de problemas. Lista para aportar desde el primer día con código limpio y atención al detalle."
+        output: "Un buen sistema no solo debe funcionar: debe ser estable, usable y confiable. Análisis, calidad y resolución de problemas, lista para aportar desde el primer día."
     }
 };
 

@@ -3,8 +3,8 @@ import { Variants } from "framer-motion";
 // Configuración del contenido (Fácil de editar en el futuro)
 export const HERO_CONTENT = {
   badge: "Disponible para trabajar",
-  name: "Maria Camila Vesga Navas",
-  role: "Tecnólogo en Análisis y Desarrollo de Software",
+  name: "Camila Vesga Navas",
+  role: "Desarrolladora de Software | QA Analyst | IT Support",
   roles: [
     "Software Developer",
     "QA Analyst",
