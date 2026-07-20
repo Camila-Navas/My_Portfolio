@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { PROJECTS } from "@/src/config/projects-data";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectsStack } from "./ProjectsStack";
+import { GitHubRepos } from "./GitHubRepos";
 
 const ALL = "Todos";
 
@@ -115,6 +116,29 @@ export default function Projects() {
             No hay proyectos en esta categoría todavía.
           </p>
         )}
+
+        {/* Repositorios de GitHub (automatico, top por estrellas) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-24 max-w-6xl mx-auto"
+        >
+          <div className="text-center mb-10 space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gray-200 dark:border-zinc-800 text-xs uppercase tracking-wider text-gray-500 dark:text-zinc-400">
+              <Github size={14} />
+              Actualizado automaticamente
+            </div>
+            <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+              Repositorios de GitHub
+            </h3>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Los repositorios publicos con mas estrellas, traidos en vivo desde la API de GitHub.
+            </p>
+          </div>
+
+          <GitHubRepos />
+        </motion.div>
 
         {/* CTA Final */}
         <motion.div
